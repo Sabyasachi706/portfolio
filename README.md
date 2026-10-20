@@ -1,4 +1,4 @@
-# Sabyasachi Satapathy — Elite Data Analyst Portfolio
+# Sabyasachi Satapathy — Data Analyst Portfolio
 
 A premium, production-ready portfolio built with **Next.js 14**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
 
