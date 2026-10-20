@@ -8,9 +8,9 @@ const education = [
     institution: "National Institute of Technology Durgapur",
     degree: "M.Sc. Chemistry",
     period: "2021 – 2026",
-    type: "Pre-Final Year",
+    type: "Graduated",
     highlight: true,
-    detail: "Pursuing integrated M.Sc. at one of India's premier technical institutions (NIT)",
+    detail: "Completed integrated M.Sc. at one of India's premier technical institutions (NIT)",
   },
   {
     institution: "Jawahar Navodaya Vidyalaya",

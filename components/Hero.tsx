@@ -8,7 +8,7 @@ import { useEffect } from "react";
 const stats = [
   { value: "85.73%", label: "ML Accuracy", icon: Brain },
   { value: "SQL", label: "Gold Badge", icon: Database },
-  { value: "3+", label: "Internships", icon: TrendingUp },
+  { value: "3", label: "Industry Roles", icon: TrendingUp },
 ];
 
 export function Hero() {
@@ -59,7 +59,7 @@ const smoothY = useSpring(mouseY, {
     translateY: "-50%",
     background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)"
   }}
-  className="fixed top-0 left-0 w-[500px] h-[500px] opacity-30 pointer-events-none z-10"
+  className="hidden md:block fixed top-0 left-0 w-[500px] h-[500px] opacity-20 pointer-events-none z-0"
 />
       <div
         className="absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full opacity-5 blur-3xl pointer-events-none"
@@ -102,7 +102,7 @@ const smoothY = useSpring(mouseY, {
             className="font-mono text-sm md:text-base mb-6 tracking-wide"
             style={{ color: "var(--accent)" }}
           >
-            Data Analyst · SQL Advanced · 85.73% ML Model Accuracy · Business Insights Enthusiast
+            Junior Analyst · SQL (HackerRank Gold) · Power BI · Python
           </motion.p>
 
           {/* Description */}
@@ -113,7 +113,7 @@ const smoothY = useSpring(mouseY, {
             className="text-lg leading-relaxed mb-10 max-w-2xl"
             style={{ color: "var(--text-secondary)" }}
           >
-            Final year M.Sc. student at{" "}
+            Junior Analyst at Goignis Circle and Graduate student from{" "}
             <strong style={{ color: "var(--text-primary)" }}>NIT Durgapur</strong> passionate about
             transforming raw datasets into actionable strategies using{" "}
             <strong style={{ color: "var(--accent)" }}>Python, SQL, Excel, Power BI</strong>, and

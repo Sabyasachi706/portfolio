@@ -7,7 +7,7 @@ const skillGroups = [
   {
     category: "Programming",
     icon: "⌨️",
-    skills: ["Python (Matplotlib, Pandas, Seaborn, Numpy, Sci-kit learn)", "SQL (Advanced)", "C++"],
+    skills: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "SQL (Advanced)", "C++"],
   },
   {
     category: "Data & Analytics",
@@ -37,7 +37,7 @@ const skillGroups = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24">
+    <section id="skills" className="py-24 relative overflow-hidden">
       <div
         className="absolute inset-0 opacity-20 pointer-events-none"
         style={{

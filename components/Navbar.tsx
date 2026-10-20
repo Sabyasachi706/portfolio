@@ -37,7 +37,7 @@ export function Navbar() {
       style={
         scrolled
           ? {
-              background: "rgba(var(--bg), 0.85)",
+              background: "color-mix(in srgb, var(--bg) 85%, transparent)",
               borderColor: "var(--border)",
               boxShadow: "0 4px 30px rgba(0,0,0,0.15)",
             }
@@ -102,6 +102,8 @@ export function Navbar() {
           <ThemeToggle />
           <button
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
             style={{ color: "var(--text-primary)" }}
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}

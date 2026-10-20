@@ -9,10 +9,12 @@ export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setLoading(true);
+  setError("");
 
   try {
     const response = await fetch("https://formspree.io/f/xqedndak", {
@@ -33,10 +35,10 @@ export function Contact() {
       setForm({ name: "", email: "", message: "" });
       setTimeout(() => setSent(false), 4000);
     } else {
-      alert("Something went wrong. Please try again.");
+      setError("Something went wrong. Please try again or email me directly.");
     }
   } catch (error) {
-    alert("Error sending message.");
+    setError("Network error. Please check your connection and try again.");
   }
 
   setLoading(false);
@@ -173,14 +175,14 @@ export function Contact() {
                     className="space-y-5"
                   >
                     <div>
-                      <label
+                      <label htmlFor="contact-name"
                         className="font-mono text-xs tracking-wider uppercase block mb-2"
                         style={{ color: "var(--text-muted)" }}
                       >
                         Your Name
                       </label>
                       <input
-                        type="text"
+                        type="text" id="contact-name" name="name" autoComplete="name"
                         required
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -198,14 +200,14 @@ export function Contact() {
                     </div>
 
                     <div>
-                      <label
+                      <label htmlFor="contact-email"
                         className="font-mono text-xs tracking-wider uppercase block mb-2"
                         style={{ color: "var(--text-muted)" }}
                       >
                         Email Address
                       </label>
                       <input
-                        type="email"
+                        type="email" id="contact-email" name="email" autoComplete="email"
                         required
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -223,13 +225,13 @@ export function Contact() {
                     </div>
 
                     <div>
-                      <label
+                      <label htmlFor="contact-message"
                         className="font-mono text-xs tracking-wider uppercase block mb-2"
                         style={{ color: "var(--text-muted)" }}
                       >
                         Message
                       </label>
-                      <textarea
+                      <textarea id="contact-message" name="message"
                         required
                         rows={4}
                         value={form.message}
@@ -270,6 +272,11 @@ export function Contact() {
                         </>
                       )}
                     </motion.button>
+                    {error && (
+                      <p role="alert" className="text-sm text-center" style={{ color: "#F87171" }}>
+                        {error}
+                      </p>
+                    )}
                   </motion.form>
                 )}
               </AnimatePresence>

@@ -1,31 +1,36 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function CustomCursor() {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [follower, setFollower] = useState({ x: 0, y: 0 });
+  const [enabled, setEnabled] = useState(false);
+  const x = useMotionValue(-100);
+  const y = useMotionValue(-100);
+  const fx = useSpring(x, { stiffness: 300, damping: 28 });
+  const fy = useSpring(y, { stiffness: 300, damping: 28 });
 
   useEffect(() => {
+    // Only for devices with a real pointer, and not for reduced-motion users
+    const ok =
+      window.matchMedia("(pointer: fine)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setEnabled(ok);
+    if (!ok) return;
     const onMove = (e: MouseEvent) => {
-      setPos({ x: e.clientX, y: e.clientY });
-      setTimeout(() => setFollower({ x: e.clientX, y: e.clientY }), 80);
+      x.set(e.clientX);
+      y.set(e.clientY);
     };
     window.addEventListener("mousemove", onMove);
     return () => window.removeEventListener("mousemove", onMove);
-  }, []);
+  }, [x, y]);
+
+  if (!enabled) return null;
 
   return (
     <>
-      <div
-        className="custom-cursor hidden md:block"
-        style={{ left: pos.x, top: pos.y }}
-      />
-      <div
-        className="custom-cursor-follower hidden md:block"
-        style={{ left: follower.x, top: follower.y }}
-      />
+      <motion.div className="custom-cursor" style={{ left: x, top: y }} />
+      <motion.div className="custom-cursor-follower" style={{ left: fx, top: fy }} />
     </>
   );
 }

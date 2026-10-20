@@ -17,16 +17,16 @@ export function Footer() {
               Sabyasachi Satapathy
             </p>
             <p className="font-mono text-xs mt-1" style={{ color: "var(--text-muted)" }}>
-              Aspiring Data Analyst · NIT Durgapur
+              Data Analyst · NIT Durgapur
             </p>
           </div>
 
           {/* Social Icons */}
           <div className="flex items-center gap-4">
             {[
-              { icon: Github, href: "https://github.com", label: "GitHub" },
-              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-              { icon: Mail, href: "mailto:9sss3110@gmail.com", label: "Email" },
+              { icon: Github, href: "https://github.com/Sabyasachi706", label: "GitHub" },
+              { icon: Linkedin, href: "https://linkedin.com/in/sabyasachi-satapathy", label: "LinkedIn" },
+              { icon: Mail, href: "mailto:sssatapathy256@gmail.com", label: "Email" },
             ].map(({ icon: Icon, href, label }) => (
               <motion.a
                 key={label}
@@ -55,7 +55,7 @@ export function Footer() {
           className="text-center font-mono text-xs"
           style={{ color: "var(--text-muted)" }}
         >
-          © 2026 Sabyasachi Satapathy | Built with Next.js & Passion for Data
+          © 2026 Sabyasachi Satapathy | Built with Next.js
         </p>
       </div>
     </footer>

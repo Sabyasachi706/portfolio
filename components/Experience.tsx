@@ -7,12 +7,13 @@ import { Briefcase, Calendar, MapPin } from "lucide-react";
 const experiences = [
   {
     company: "Goignis Circle",
-    role: "Market Research Intern",
+    role: "Junior Analyst (earlier: Market Research Intern)",
     period: "Jan 2026 – Present",
     type: "Current",
     color: "#2DD4BF",
     highlights: [
-      "Conducting market analysis and competitive intelligence research",
+      "Build Power BI dashboards and reports for recurring market-research survey studies",
+      "Conduct market analysis and competitive intelligence research",
       "Generating data-driven insights for business strategy",
     ],
   },
